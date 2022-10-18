@@ -36,7 +36,7 @@ module.exports = {
             price,
             imageURL
         }
-        console.log(newHouse.id)
+        // console.log(newHouse.id)
         housesDB.push(newHouse)
         res.status(200).send(housesDB)
     },
@@ -47,11 +47,11 @@ module.exports = {
         let index = housesDB.findIndex(element => element.id === +id)
 
         if (type === 'plus'){
-            housesDB[index].price = housesDB[index].price + 10000
+            housesDB[index].price = +housesDB[index].price + 10000
             res.status(200).send(housesDB)
             // console.log(`should have added $10k to ${id}`)
         } else if (type === 'minus') {
-            housesDB[index].price = housesDB[index].price - 10000
+            housesDB[index].price = +housesDB[index].price - 10000
             res.status(200).send(housesDB)
             // console.log(`should have subracted $10k to ${id}`)
         }else {
